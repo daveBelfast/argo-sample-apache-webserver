@@ -9,7 +9,7 @@ spec:
   selector:
     app: apache
   ports:
-    - protocol: http
+    - protocol: TCP
       port: 10000
       targetPort: 80
-      NodePort: 30080
+      nodePort: 30080
