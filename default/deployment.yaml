@@ -1,41 +1,41 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: apache-webserver
-  labels:
-    app: apache
-spec:
-  replicas: 3
-  selector:
-    matchLabels:
-      app: apache
-  template:
-    metadata:
-      labels:
-        app: apache
-    spec:
-      containers:
-        - name: apache
-          image: httpd:2.4
-          ports:
-            - containerPort: 80
-              name: http
-          resources:
-            requests:
-              cpu: 100m
-              memory: 128Mi
-            limits:
-              cpu: 500m
-              memory: 512Mi
-          livenessProbe:
-            httpGet:
-              path: /
-              port: 80
-            initialDelaySeconds: 30
-            periodSeconds: 10
-          readinessProbe:
-            httpGet:
-              path: /
-              port: 80
-            initialDelaySeconds: 5
-            periodSeconds: 5
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: apache-webserver
+#   labels:
+#     app: apache
+# spec:
+#   replicas: 3
+#   selector:
+#     matchLabels:
+#       app: apache
+#   template:
+#     metadata:
+#       labels:
+#         app: apache
+#     spec:
+#       containers:
+#         - name: apache
+#           image: httpd:2.4
+#           ports:
+#             - containerPort: 80
+#               name: http
+#           resources:
+#             requests:
+#               cpu: 100m
+#               memory: 128Mi
+#             limits:
+#               cpu: 500m
+#               memory: 512Mi
+#           livenessProbe:
+#             httpGet:
+#               path: /
+#               port: 80
+#             initialDelaySeconds: 30
+#             periodSeconds: 10
+#           readinessProbe:
+#             httpGet:
+#               path: /
+#               port: 80
+#             initialDelaySeconds: 5
+#             periodSeconds: 5
